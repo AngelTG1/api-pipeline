@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Login to DockerHub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    - name: Build the Docker image
-      run: docker build -t AngelTG1/api-pipeline:latest .
+      - name: Build the Docker image
+        run: docker build -t AngelTG1/api-pipeline:latest .
 
-    - name: Push to DockerHub
-      run: docker push AngelTG1/api-pipeline:latest
+      - name: Push to DockerHub
+        run: docker push AngelTG1/api-pipeline:latest
